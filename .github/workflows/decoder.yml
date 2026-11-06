@@ -1,0 +1,25 @@
+name: Decoder tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linux-decoder:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Free Pascal and zlib
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes fp-compiler fp-units-base fp-units-fcl zlib1g-dev
+      - name: Run decoder tests and benchmark
+        run: bash Tests/run-native.sh
