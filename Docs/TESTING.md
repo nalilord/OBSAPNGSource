@@ -2,7 +2,7 @@
 
 ## Decoder tests
 
-On Windows, run `build.ps1 -Tests` from the project root. This requires Delphi
+On Windows, run `Scripts/build.ps1 -Tests` from the project root. This requires Delphi
 Win64, the DelphiOBS bindings described in the README, and Node.js on PATH.
 `Tests/test-decoder.cjs` uses Node built-ins to generate its own fixtures and
 compare decoded pixels with expected results; no npm packages or external
@@ -31,7 +31,7 @@ OBS APIs. The GitHub Actions workflow runs the same decoder script.
 `Tests/run-render.ps1` builds and runs the existing `OBSRenderProbe.dpr` against
 a supplied OBS installation. It generates a 508 × 286, three-frame test border
 with an opaque rim, transparent center and a semitransparent patch. Run from the
-project root after `build.ps1`:
+project root:
 
 ```powershell
 .\Tests\run-render.ps1 -OBSRoot 'C:\Program Files\obs-studio'
@@ -57,12 +57,14 @@ not a guarantee for every asset or GPU.
 
 ## Load-time benchmark
 
-Build `Tests/DecodeBenchmark.dpr` with Delphi, or let `Tests/run-native.sh` build
-the Linux version. From WSL:
+The Windows build with `-Tests` also compiles `Tests/DecodeBenchmark.dpr` into
+`Bin/Win64/DecodeBenchmark.exe`. From WSL:
 
 ```bash
-bash build-wsl-generic.sh Tests/DecodeBenchmark.dpr Win64
+bash Scripts/build.sh -Tests
 ```
+
+For Linux, `Tests/run-native.sh` builds and runs the benchmark automatically.
 
 Run `DecodeBenchmark input.apng [iterations=30] [straight]`. The optional
 `straight` flag omits premultiplication; default output is the upload-ready cache.

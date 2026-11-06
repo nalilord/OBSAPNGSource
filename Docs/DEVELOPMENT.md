@@ -4,12 +4,13 @@
 
 | Path | Purpose |
 | --- | --- |
-| `OBSAPNGPlugin.dpr` | OBS module exports and runtime compatibility check |
+| `Source/OBSAPNGPlugin.dpr` | OBS module exports and runtime compatibility check |
 | `Source/PNGDecoder.pas` | PNG decompression, row filters, sample expansion and Adam7 |
 | `Source/APNGDecoder.pas` | APNG parsing, frame compositing, caching and timing |
 | `Source/OBSAPNGSource.pas` | OBS properties, animation clock and texture rendering |
 | `Tests/` | Decoder fixtures, benchmark and optional OBS integration probe |
-| `Docs/` | Developer documentation and coding style |
+| `Scripts/` | Build and packaging script, plus WSL wrapper |
+| `Docs/` | Development and testing documentation |
 | `.github/` | Decoder CI and issue templates |
 | `Bin/`, `.build/`, `Dist/` | Generated files; excluded from Git |
 
@@ -48,10 +49,10 @@ before taking that graphics lock; the finished animation is then swapped in.
 ## Release preparation
 
 1. Update `VERSION` and `CHANGELOG.md`.
-2. Build and run the Windows decoder suite with `build.ps1 -Tests`.
+2. Build and run the Windows decoder suite with `Scripts/build.ps1 -Tests`.
 3. Run the OBS render probe against the supported runtime versions. See
    [TESTING.md](TESTING.md).
-4. Run `package-plugin.ps1 -Tests`. It builds from source and creates:
+4. Run `Scripts/build.ps1 -Package -Tests`. It builds from source and creates:
    - `Dist/OBSAPNGSource-<version>-windows-x64.zip`
    - `Dist/SHA256SUMS.txt`
 5. Review the ZIP, commit the source, then tag the release as `v<version>`.

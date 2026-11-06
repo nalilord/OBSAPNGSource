@@ -13,7 +13,7 @@ foreach ($name in @('obs.dll', 'libobs-d3d11.dll')) {
 $buildArgs = @{ RenderProbe = $true }
 if ($DelphiRoot) { $buildArgs.DelphiRoot = $DelphiRoot }
 if ($OBSPluginRoot) { $buildArgs.OBSPluginRoot = $OBSPluginRoot }
-& (Join-Path $root 'build.ps1') @buildArgs
+& (Join-Path $root 'Scripts\build.ps1') @buildArgs
 $version = (Get-Item -LiteralPath (Join-Path $runtime 'obs.dll')).VersionInfo.FileVersion
 $output = Join-Path $root ('.build\render-tests\' + ($version -replace '[^A-Za-z0-9.-]', '_'))
 New-Item -ItemType Directory -Force -Path $output | Out-Null

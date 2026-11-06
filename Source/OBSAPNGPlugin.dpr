@@ -2,8 +2,8 @@ library OBSAPNGPlugin;
 
 uses
   System.SysUtils, XENOME.OBS, XENOME.OBS.Compatibility, XENOME.OBS.Audio, XENOME.OBS.Data, XENOME.OBS.Graphics, XENOME.OBS.Math, XENOME.OBS.Misc,
-  XENOME.OBS.Properties, XENOME.OBS.Source, XENOME.OBS.Types, XENOME.OBS.Video, XENOME.OBS.VideoScaler, APNGDecoder in 'Source\APNGDecoder.pas',
-  PNGDecoder in 'Source\PNGDecoder.pas', OBSAPNGSource in 'Source\OBSAPNGSource.pas';
+  XENOME.OBS.Properties, XENOME.OBS.Source, XENOME.OBS.Types, XENOME.OBS.Video, XENOME.OBS.VideoScaler, APNGDecoder in 'APNGDecoder.pas',
+  PNGDecoder in 'PNGDecoder.pas', OBSAPNGSource in 'OBSAPNGSource.pas';
 
 var
   Module: POBSModule;

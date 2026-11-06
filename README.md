@@ -99,7 +99,7 @@ release beside this project, naming its directory `OBSPlugin`:
 # From the parent directory containing OBSAPNGSource:
 git clone --branch v0.2.0 --depth 1 https://github.com/nalilord/DelphiOBS.git OBSPlugin
 cd OBSAPNGSource
-.\build.ps1 -Tests
+.\Scripts\build.ps1 -Tests
 ```
 
 The result is `Bin/Win64/OBSAPNGPlugin.dll`. The build script discovers Delphi
@@ -107,17 +107,18 @@ under Program Files (x86). Use `-DelphiRoot` or `-OBSPluginRoot` to override eit
 location:
 
 ```powershell
-.\build.ps1 -DelphiRoot 'C:\Path\To\Studio\37.0' -OBSPluginRoot 'D:\Source\DelphiOBS' -Tests
+.\Scripts\build.ps1 -DelphiRoot 'C:\Path\To\Studio\37.0' -OBSPluginRoot 'D:\Source\DelphiOBS' -Tests
 ```
 
-For the IDE, open `OBSAPNGPlugin.dpr`, select Win64, and add `Source` and
-`..\OBSPlugin\Source` to the unit search path. WSL users can run
-`bash build-delphi.sh`; `OBS_PLUGIN_ROOT` overrides the bindings directory.
+For the IDE, open `Source/OBSAPNGPlugin.dpr`, select Win64, and add
+`..\..\OBSPlugin\Source` to the unit search path (relative to the DPR).
+WSL users can run `bash Scripts/build.sh -Tests`; `OBS_PLUGIN_ROOT` overrides
+the bindings directory. The wrapper accepts the same switches, including `-Package`.
 
 Build a release ZIP and checksum file with:
 
 ```powershell
-.\package-plugin.ps1 -Tests
+.\Scripts\build.ps1 -Package -Tests
 ```
 
 See [development and release notes](Docs/DEVELOPMENT.md) for the project layout
@@ -140,11 +141,7 @@ A GitHub Actions workflow runs the Linux decoder suite. It does not build the
 Windows plugin or replace OBS integration testing. See [testing and benchmark
 notes](Docs/TESTING.md) for requirements, the render probe and measured results.
 
-## Contributing and license
-
-Bug reports should include your OBS version, plugin version, relevant log lines
-and a small APNG that reproduces the problem. See [CONTRIBUTING.md](CONTRIBUTING.md)
-for build and contribution guidance.
+## License
 
 Created by **NaliLord**. Licensed under the [GNU GPL v2](LICENSE).
 [DelphiOBS](https://github.com/nalilord/DelphiOBS) supplies the shared OBS bindings;
