@@ -4,6 +4,7 @@
 ![OBS: 32.1.2–33.x](https://img.shields.io/badge/OBS-32.1.2%E2%80%933.x-302E31)
 ![Language: Delphi](https://img.shields.io/badge/language-Delphi-E62431)
 [![License: GPL v2](https://img.shields.io/badge/license-GPL_v2-blue)](LICENSE)
+[![Decoder tests](https://github.com/nalilord/OBSAPNGSource/actions/workflows/decoder.yml/badge.svg)](https://github.com/nalilord/OBSAPNGSource/actions/workflows/decoder.yml)
 
 Play animated PNG overlays directly in OBS with transparency, adjustable speed
 and the timing stored in the file. Add **APNG Image**, choose an animation, and
@@ -41,8 +42,8 @@ macOS plugin builds are not provided. The decoder can be tested separately on Li
 
 ## Install
 
-Use the Windows x64 ZIP attached to a project release when available, or
-[build the plugin](#build-from-source). GitHub's automatically generated **Source
+[Download the Windows x64 plugin](https://github.com/nalilord/OBSAPNGSource/releases/latest),
+or [build it from source](#build-from-source). GitHub's automatically generated **Source
 code** archives contain source files, not an installable DLL.
 
 1. Close OBS Studio.

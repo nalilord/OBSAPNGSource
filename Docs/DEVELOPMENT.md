@@ -63,5 +63,5 @@ The ZIP contains the DLL in `obs-plugins/64bit`, installation instructions, the
 project license and third-party notices. Do not add compiled binaries, test
 captures, compiler units or local runtime installations to Git.
 
-The first public release is prepared as version 0.1.0. Creating a package does
+The first public release is version 0.1.0. Creating a package does
 not create a GitHub repository, tag, release or upload.

@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.0 — Unreleased
+## 0.1.0 — 2026-11-06
 
-First public release candidate.
+First public release.
 
 - Dedicated **APNG Image** source for OBS Studio on Windows x64.
 - Native Delphi PNG decoding with statically linked RTL zlib.
