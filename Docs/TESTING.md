@@ -18,7 +18,7 @@ For Linux decoder testing, install Free Pascal with the FCL and ZLib units,
 Node.js, and system libz. On Ubuntu:
 
 ```bash
-sudo apt-get install fp-compiler fp-units-base fp-units-fcl zlib1g-dev nodejs
+sudo apt-get install fp-compiler fp-units-base fp-units-fcl fp-units-misc zlib1g-dev nodejs
 bash Tests/run-native.sh
 ```
 
